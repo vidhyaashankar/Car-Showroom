@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-darkness/jquery-ui.css" rel="stylesheet">  
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <style>
+    h1{
+  color:black;
+  font-family:Georgia;
+  font-size: 30px;
+}
+.card {
+  box-shadow: 0 8px 10px 0 rgba(240, 237, 237, 0.2);
+  max-width: 400px;
+  text-align: center;
+  font-family: arial;
+  border: 4px white;
+}
+.column {
+  float: left;
+  width: 40%;
+  padding: 20px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+ </style>  
+</head>
+  <body>
+    <center><h1>CAR SHOWROOM</h1></center></div>
+    <div id="accordion">
+        <h2>Modern Cars</h2>
+    <div class="row">
+        <div class="column">
+    <div class="card" id="b3">
+      <img src="c1.jfif" style="width:100%">
+      <h2>Lamborghini</h2>
+    </div>
+    </div>
+    <div class="column">
+    <div class="card" id="b5">
+        <img src="c3.jfif" style="width:100%">
+        <h2>audi</h2>
+      </div>
+    </div>
+    </div>
+    <h2>Vintage Cars</h2>
+    <div class="row">
+        <div class="column">
+    <div class="card" id="b6">
+      <img src="c4.jfif" style="width:100%">
+      <h2>zomberg</h2>
+    </div>
+    </div>
+    <div class="column">
+    <div class="card" id="b7">
+        <img src="c5.jfif" style="width:100%">
+        <h2>cyrotpu</h2>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <script>
+          $("h1").hover(function() { 
+ $( "h1" ).effect({ 
+ effect: "highlight", 
+ color:"skyblue",
+ duration: 3000 
+ }); 
+ });
+$( "#accordion" ).accordion();
+$("#b3").click(function() { 
+ $( "#b3" ).effect({ 
+    effect: "slide", 
+ duration: 1500 
+ }); 
+ }); 
+ $("#b5").click(function() { 
+ $( "#b5" ).effect({ 
+    effect:"shake", 
+ times: 4, 
+ distance: 30,
+ duration:1000
+ }); });
+ $("#b6").click(function() { 
+ $( "#b6" ).effect({ 
+ effect: "fade",
+ duration: 1800 , 
+ }); 
+ });
+ $("#b7").click(function() { 
+ $( "#b7" ).effect({ 
+ effect: "explode", 
+ pieces: 20, 
+ duration: 1800 
+ }); });
+
+    </script>
+    </body>
+  </html>

@@ -1,0 +1,203 @@
+<html>
+  <head>
+    <style>
+        label{
+    padding:2px;
+    margin:0px;
+    color:rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+}
+input{
+    padding:3px;
+    margin:4px;
+    color:grey;
+   
+}
+h3{
+    padding:3px;
+    margin:4px;
+    color:rgb(2, 20, 10);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.btn{
+    color:lightblue;
+    background-color: darkblue;
+    border:2px solid skyblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.btn{
+    color:white;
+    background-color:rgb(15, 1, 1);
+    border:2px solid rgb(235, 135, 135);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+body{
+    background-image: url("https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20210811125110_Toyota_virtual_shoroom.jpg&w=700&q=90&c=1");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+div{
+    color:rgb(8, 231, 175);
+    font-family: 'Times New Roman', Times, serif;
+}
+#r1{
+    accent-color: red;
+}
+#c1{
+    accent-color: red;
+}
+#age
+{
+    margin-left:50px;
+}
+
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script>
+$(document).ready(function() {
+  $.validator.addMethod("passwordRule",function(value ){
+    return /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(value);
+  });
+
+  $.validator.addMethod("phnoRule",function(value ){
+     return /^(0|91)?[6-9][0-9]{9}$/.test(value);
+  });
+  
+  $("#forms").validate({
+  rules: {
+         name1: {
+          required : true
+         },
+         name2: {
+          required : true
+         },
+        
+         radio1: {
+          required : true
+         },
+         check1: {
+          required : true
+         },
+         email1: {
+          required : true,
+          email : true
+         },
+         phno:{
+            required:true,
+            phnoRule:true
+         },
+         age:{
+            required:true
+         },
+         address:{
+            required:true
+         },
+        pass: {
+          required : true,
+          passwordRule: true
+            }, 
+        pass1: {
+          required : true,
+          equalTo:"#p"
+           }
+            },
+  messages:{
+    name1:{
+      required:"First name is required"
+    },
+    name2:{
+      required:"Last name is required"
+    },
+   
+    radio1:{
+      required:"Payment mode is required"      
+    },
+    check1:{
+      required:"Wood Type is required"      
+    },
+    email1: {
+          required : "email is required",email : "enter correct email"
+         },
+         age:{
+            required:"Age is required"
+         },
+         address:{
+            required:"Address is required"
+         },
+         phno:{
+            required:"Phone number is required",
+            phnoRule:"It should be exactly 10 digits"
+         },
+   pass: {
+          required : "password is required",
+          passwordRule: "oneuppercase,lowercase,number,specialchar"
+         },
+         pass1: {
+          required : "password is required",
+          equalTo: "not same length"
+         },
+        }, 
+        errorPlacement: function(error, element){
+            if (element.is(":radio")){
+            error.appendTo(element.parent(".payment"));
+            }
+            else if (element.is(":checkbox")){
+              error.appendTo(element.parent(".wood"));
+            }
+          else {error.insertAfter(element);}}
+});
+});
+</script>
+  </head>
+<body>
+    <h3 style="text-align: center">Registration Form</h3>       
+    <div class="col-lg-3 mx-auto" id="body">
+    <form id="forms">
+      <label>First Name:</label> <input type="text"  class="form-control" placeholder="First Name"  name="name1" > <br />
+      <br>
+      <label>Last Name:</label> <input type="text" class="form-control" placeholder="Last Name" name="name2"  > <br />
+      <br>
+      <label>Age:</label> <input type="number"  class="form-control" placeholder="Numbers only" name="age" id="age"><br><br>
+      <label>Email Address:</label> <input type="email"  class="form-control" placeholder="Email Address" name="email1" id="email">
+      <br><br>
+      <label>Create Password:</label> <input type="password"placeholder="Password"  class="form-control" name="pass" id="p"><br />
+      <br>
+      <label>Confirm Password:</label> <input type="password"  class="form-control" placeholder="Confirm Password"name="pass1">
+      <br></br>
+      <label>Phone Number:</label> <input type="number"  class="form-control" placeholder="It should be 10 digits!!!" name="phno" max="10" id="phno">
+      <br></br>
+      <label>Residentail Address:</label><textarea  class="form-control" placeholder=" Address"name="address" rows="2" cols="20" id="add"></textarea>
+      <br></br>
+      <label>Car type</label>
+      <div class="wood">
+      <input type="checkbox" value="Seadean"  name="check1" id="c1">Seadean
+      <input type="checkbox" value="Suv" name="check1" id="c1">Suv
+      <input type="checkbox" value="Hatchbag" name="check1" id="c1">Hatchbag<br><br>
+      </div>
+      <label>Car Model</label>
+      <select name="type">
+       <option id="c1">BMW</option>
+       <option>AUDI</option>
+       <option>TOYOTA</option>
+       <option>BENZ</option>
+     </select><br></br>
+      <label>Payment mode</label>
+      <div class="payment">
+      <input type="radio" name="radio1" value="Paytm" id="r1">Paytm
+      <input type="radio" name="radio1" value="G-pay" id="r1">G-pay
+      <input type="radio" name="radio1" value="Phone-pe" id="r1">Phone-pe</div>
+     <br></br>
+      
+      <button type="button" value="Submit" class="btn btn-success">Submit</button>
+    </div>
+     </form>
+     </body>
+</body>
+</html>
